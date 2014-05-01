@@ -2,29 +2,32 @@
 
 /*
 |--------------------------------------------------------------------------
-| remove links from comments
+| Main Functions Class
 |--------------------------------------------------------------------------
 */
 
-remove_filter(‘comment_text’, ‘make_clickable’, 9);
+	class plugin_BaseClass { 
 
-function preprocess_comment_handler( $commentdata ) { 
+	  // singleton instance 
+	  private static $instance; 
 
-	// Always remove the URL from the comment author's comment
-	unset( $commentdata['comment_author_url'] );
+	  // private constructor function 
+	  // to prevent external instantiation 
+	  private __construct() { } 
 
-	// If the user is speaking in all caps, lowercase the comment
-	if( $commentdata['comment_content'] == strtoupper( $commentdata['comment_content'] )) {
-		$commentdata['comment_content'] = strtolower( $commentdata['comment_content'] );
+	  // getInstance method 
+	  public static function getInstance() { 
+
+	    if(!self::$instance) { 
+	      self::$instance = new self(); 
+	    } 
+
+	    return self::$instance; 
+
+	  } 
+
+	  //... 
+
 	}
-	
-	//stip obsene html
-	$commentdata['comment_content'] = strip_tags($commentdata['comment_content'], '<p><span><ul><li><ol>');
-	
-	return $commentdata;
-
- }
-
-add_action( 'preprocess_comment' , 'preprocess_comment_handler' );
 
 ?>
