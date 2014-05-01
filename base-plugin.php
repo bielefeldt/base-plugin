@@ -41,6 +41,6 @@
 	$init_config = array (
 			//...
 		);
-	new plugin_BaseClass($ini_config);
+	new plugin_BaseClass($init_config);
 
 ?>
