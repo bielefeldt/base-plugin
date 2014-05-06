@@ -3,7 +3,7 @@
  * Plugin Name: Base Plugin
  * Plugin URI: http://typoglyphic.com
  * Description: This is a base WordPress plugin with the ability to update from github
- * Version: 0.1
+ * Version: 0.2
  * Author: Bryan Bielefeldt
  * Author URI: http://typoglyphic.com
  * License: GPL2
